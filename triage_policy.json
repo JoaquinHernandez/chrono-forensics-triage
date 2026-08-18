@@ -1,0 +1,21 @@
+{
+  "investigation_case_prefix": "IR-CASE-2026",
+  "suspicious_ports": [4444, 5555, 6666, 1337, 31337, 9001],
+  "suspicious_paths": [
+    "/tmp",
+    "/var/tmp",
+    "/dev/shm",
+    "C:\\Users\\Public",
+    "C:\\Windows\\Temp",
+    "AppData\\Local\\Temp"
+  ],
+  "persistence_keywords": [
+    "powershell -enc",
+    "nc -e",
+    "bash -i",
+    "wget",
+    "curl",
+    "chmod +x",
+    "schtasks /create"
+  ]
+}
